@@ -1,0 +1,10 @@
+node:
+1- use in the backend
+2- js can only run in the browser
+3- js can add html , node can't
+4-js is used in frontend
+5-js can't connect to databases
+6- node enable the use of js in the backend
+7-node js is a runtime, js is a programing language
+8-node enable to write and read files
+
