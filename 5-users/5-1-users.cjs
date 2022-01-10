@@ -1,6 +1,7 @@
 const yargs = require("yargs")
 const fs = require('fs')
 const uniqid = require('uniqid');
+// const chalk = require('chalk');
 
 const getUsers=()=>{
     try {
@@ -66,7 +67,16 @@ const updateUser=(id,newName)=>{
         console.log('user not found')
     }
 }
-
+const findUser = (id)=>{
+    const users= getUsers();
+    const user = users.find(user=>{
+        return user.id ===id
+    })
+    if(user){
+        return user
+    }
+    return "user not found"
+}
 yargs.command({
     command:"add",
     describe:"Add a new user",
@@ -121,7 +131,21 @@ yargs.command({
         console.log('update:   ')
     },
 })
+yargs.command({
+    command:"read",
+    describe:"read a user",
+    builder: {
+        id:{
+            describe:"id",
+            type:'string',
+        },
 
+    },
+    handler:(argv)=> {
+        const user = findUser(argv.id)
+        console.log('user: ',user)
+    }
+})
 
 console.log(yargs.argv)
 
