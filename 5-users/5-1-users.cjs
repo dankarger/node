@@ -74,6 +74,9 @@ yargs.command({
         name:{
             describe:" add user",
             type:'string',
+            options:{
+                demandOption: true
+            }
         },
         email: {
             describe: "email",
@@ -119,24 +122,6 @@ yargs.command({
     },
 })
 
-yargs.command({
-    command:"pow",
-    describe:"Pow a new note",
-    builder: {
-        title:{
-            describe:" pow method",
-            type:'number',
-        },
-        body: {
-            describe: "body",
-            type:'string'
-        }
-    },
-    handler:function(argv) {
-        console.log('adding:   ', argv._[1] ** argv._[2])
-    },
-})
-
-
 
 console.log(yargs.argv)
+
