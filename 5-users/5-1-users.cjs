@@ -1,7 +1,8 @@
 const yargs = require("yargs")
 const fs = require('fs')
 const uniqid = require('uniqid');
-// const chalk = require('chalk');
+// import chalk from 'chalk'
+
 
 const getUsers=()=>{
     try {
@@ -77,6 +78,8 @@ const findUser = (id)=>{
     }
     return "user not found"
 }
+debugger
+
 yargs.command({
     command:"add",
     describe:"Add a new user",
