@@ -39,7 +39,7 @@ const born = (arr) => { return arr.filter((item) => {
 }); };
 const food = (arr) => { const obj = {};
     arr.forEach((el) => { el.favoriteFoods.forEach((foodObj) => {
-        console.log(foodObj); foodObj.forEach((meatItem) => {
+        console.log(foodObj); foodObj.meats.forEach((meatItem) => {
             console.log();
 obj[meatItem] = obj[meatItem] + 1 || 1; });
             foodObj.fish.forEach((fishItem) => { obj[fishItem] = obj[fishItem] + 1 || 1;
@@ -49,4 +49,4 @@ obj[meatItem] = obj[meatItem] + 1 || 1; });
     console.log(food(data));
 
 // }
-debugger
+//the problem was the forEach was on an object and not an array (line 42) , the fix was to add the meats array to the forEach function  ,
