@@ -39,6 +39,7 @@ app.post('/numbers/:newNum', function (req, res) {
 })
 
 app.delete('/numbers/', function (req, res) {
+
     res.send('success using delete')
 })
 
