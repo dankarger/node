@@ -17,10 +17,10 @@ app.put('/numbers/', function (req, res) {
     const {oldNum,newNum} = req.query
     const oldNumIndex = Numbers.indexOf(+oldNum)
     if(oldNumIndex===-1){
-        res.send('Old number doesnt exist')
+        res.status(400).send(`${newNum} dont exist`)
     }
     if(Numbers.includes(+newNum)){
-        res.send('New number all ready exist')
+        res.status(400).send(`${newNum} all ready exist`)
     }
     Numbers[oldNumIndex] = +newNum
     res.send(Numbers)
@@ -31,16 +31,27 @@ app.post('/numbers/:newNum', function (req, res) {
     // const {newNum} = (req.query)
     const {newNum} = (req.params)
     if(Numbers.includes(+newNum)) {
-        res.send('Number allready exixst')
+        res.status(400).send(`${newNum} allready exist`)
     }else {
         Numbers.push(+newNum)
         res.send(Numbers)
     }
 })
 
-app.delete('/numbers/', function (req, res) {
 
-    res.send('success using delete')
+app.delete('/numbers/:num', function (req, res) {
+    const {num} = req.params
+    console.log(+num)
+    console.log(Numbers.includes(+num))
+    if(Numbers.includes(+num)===true){
+        const numIndex= Numbers.indexOf(+num)
+        Numbers.splice(numIndex,1)
+        res.send(Numbers).sendStatus(200)
+    }else {
+        res.status(400).send(`${num} doesnt exist`)
+        // res.sendStatus(400).res.send(`${num} doesnt exist`)
+    }
+
 })
 
 
