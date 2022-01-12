@@ -5,20 +5,31 @@ const port = 3000;
 
 app.use(express.json());
 
+
 app.get('/numbers/', function (req, res) {
-    res.send('success using  get')
+    res.send('success using get')
 })
 
 app.post('/numbers/', function (req, res) {
-    res.send('success using  post')
+    res.send('success using post')
 })
 
 app.put('/numbers/', function (req, res) {
-    res.send('success using  put')
+    res.send('success using put')
 })
+
 app.delete('/numbers/', function (req, res) {
     res.send('success using delete')
 })
+
+
+
+
+app.get("*", (req, res) =>
+    res
+        .status(404)
+        .json({ message: "Route does not exist", app: "Express-Routes" })
+);
 
 app.listen({port},()=>{
     console.log(`port on ${port}`)
