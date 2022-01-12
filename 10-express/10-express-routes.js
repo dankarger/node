@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 // const router = express.Router()
 
+app.use(express.json());
 
 app.get('/numbers/', function (req, res) {
     res.send('success using  get')
