@@ -27,8 +27,9 @@ app.put('/numbers/', function (req, res) {
 
 })
 
-app.post('/numbers/', function (req, res) {
-    const {newNum} = (req.query)
+app.post('/numbers/:newNum', function (req, res) {
+    // const {newNum} = (req.query)
+    const {newNum} = (req.params)
     if(Numbers.includes(+newNum)) {
         res.send('Number allready exixst')
     }else {
