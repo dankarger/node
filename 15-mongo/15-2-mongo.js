@@ -1,14 +1,6 @@
 // const { MongoClient } = require('mongodb');
 //
-// const uri = `mongodb+srv://dankarger:dan1234@cluster0.xbbfg.mongodb.net/findMyRestaurant?retryWrites=true&w=majority`;
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//     const collection = client.db("findMyRestaurant").collection("restaurant");
-//
-//
-//     client.close();
-// });
-//
+
 
 
 //display all restaurants:
@@ -59,4 +51,6 @@
 // find numbers of collections matching querry
 'db.restaurant.find({name:/^it/}).count()'
 
+//find matching querry
+'db.restaurant.find({reviews : { $elemMatch:{"date":{$gte : "2/12/2022"}}}})'
 
