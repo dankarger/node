@@ -1,7 +1,8 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+
 const validator = require('validator')
 const {SchemaType} = require("mongoose");
-const isMobilePhone = require("validator/es/lib/isMobilePhone");
+// const isMobilePhone = require("validator/es/lib/isMobilePhone");
 
 const detailsSchema= new mongoose.Schema({
     description:{
@@ -32,7 +33,7 @@ const detailsSchema= new mongoose.Schema({
 
     },
     phoneNumber:{
-        type:Number,
+        type:String,
         validate(value){
             if(!validator.isMobilePhone(value, "he-IL")){
                 throw new Error('"invalid phone number"')
