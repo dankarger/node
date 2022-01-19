@@ -47,3 +47,16 @@
 // find numbers of collections matching querry
 'db.restaurant.find({name:/^it/}).count()'
 
+
+//
+// Mongo / MongoDB - Product / Company name
+//
+// mongosh - Mongo shell
+// mongo - Old mongo shell
+// mongod - Mongo daemon - The server that runs in the background (Linux, maybe also Mac)
+// Mongo service - The Mongo server, running as a Windows background service.
+//
+//     MongoCompass - Mongo GUI (Graphical User Interface, AKA (also called) UI)
+// Robo 3T - Mongo GUI (another one)
+//
+// Mongo Atlas - Managed Mongo DB in Mongo's cloud (the Mongo company). This is how Mongo company makes money.
