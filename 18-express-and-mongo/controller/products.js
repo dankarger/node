@@ -1,5 +1,4 @@
 const Product = require("../Product.js");
-const {ObjectId} = require('mongodb')
 const getProducts= async ()=> {
     const data=  await Product.find();
     return data
@@ -29,13 +28,13 @@ const deleteAllProducts = async ()=> {
 }
 
 const editProduct = async (id, discount )=> {
-    // let product = await Product.findById(id).updateOne({});
     const product = await Product.findByIdAndUpdate({ _id: id }, { $set: { "details.discount": discount }}, { new: true })
-    // if(product) {product.details.discount = discount;
-    // product.save()}
     return product
 }
-
+const changeActiveProduct = async (id, isActive )=> {
+    const product = await Product.findByIdAndUpdate({ _id: id }, { $set: { isActive: isActive }}, { new: true })
+    return product
+}
 
 
 module.exports = {
@@ -45,5 +44,6 @@ module.exports = {
     deleteProduct,
     deleteAllProducts,
     getActiveProducts,
-    editProduct
+    editProduct,
+    changeActiveProduct
 }
